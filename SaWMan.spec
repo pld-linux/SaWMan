@@ -1,14 +1,15 @@
 Summary:	Shared application and Window Manager
 Summary(pl.UTF-8):	Zarządca współdzielonych aplikacji i okien
 Name:		SaWMan
-Version:	0.1.0
+Version:	1.2.0
+%define	subver	rc1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://www.directfb.org/downloads/Extras/%{name}-%{version}.tar.gz
-# Source0-md5:	d36255aea4bfc0a14f043960ae7782a2
-URL:		http://www.directfb.org/index.php?path=Main/News&entry=2007-01-30-0.dok
-BuildRequires:	DirectFB-devel >= 1:1.0.0
+Source0:	http://www.directfb.org/downloads/Extras/%{name}-%{version}-%{subver}.tar.gz
+# Source0-md5:	95dfb3bb0a588e486eed3fef28fa3644
+URL:		http://www.directfb.org/index.php?path=Platform/SaWMan
+BuildRequires:	DirectFB-devel >= 1:1.2.0
 BuildRequires:	pkgconfig >= 1:0.9
 %requires_eq	DirectFB
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,7 +31,7 @@ Summary:	Header files for sawman library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki sawman
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	DirectFB-devel >= 1:1.0.0
+Requires:	DirectFB-devel >= 1:1.2.0
 
 %description devel
 Header files for sawman library.
@@ -51,7 +52,7 @@ Static sawman library.
 Statyczna biblioteka sawman.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{subver}
 
 %build
 %configure \
@@ -72,9 +73,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README
-%attr(755,root,root) %{_libdir}/libsawman-*.so.*.*.*
-%attr(755,root,root) %{_libdir}/directfb-*/wm/libdirectfbwm_sawman.so
+%doc AUTHORS ChangeLog README
+%attr(755,root,root) %{_bindir}/swmdump
+%attr(755,root,root) %{_libdir}/libsawman-1.2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libsawman-1.2.so.0
+%attr(755,root,root) %{_libdir}/directfb-1.2-0/wm/libdirectfbwm_sawman.so
 
 %files devel
 %defattr(644,root,root,755)
@@ -86,4 +89,4 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libsawman.a
-%{_libdir}/directfb-*/wm/libdirectfbwm_sawman.[aol]*
+%{_libdir}/directfb-1.2-0/wm/libdirectfbwm_sawman.[aol]*
