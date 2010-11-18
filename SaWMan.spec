@@ -1,18 +1,20 @@
 Summary:	Shared application and Window Manager
 Summary(pl.UTF-8):	Zarządca współdzielonych aplikacji i okien
 Name:		SaWMan
-Version:	1.2.0
-%define	subver	rc1
+Version:	1.4.10
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://www.directfb.org/downloads/Extras/%{name}-%{version}-%{subver}.tar.gz
-# Source0-md5:	95dfb3bb0a588e486eed3fef28fa3644
+Source0:	http://www.directfb.org/downloads/Extras/%{name}-%{version}.tar.gz
+# Source0-md5:	a56cb8a12246e041070d2ae87021e24d
+Patch0:		%{name}-update.patch
 URL:		http://www.directfb.org/index.php?path=Platform/SaWMan
-BuildRequires:	DirectFB-devel >= 1:1.2.0
+BuildRequires:	DirectFB-devel >= 1:1.4.0
 BuildRequires:	pkgconfig >= 1:0.9
 %requires_eq	DirectFB
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		dfblibdir	%{_libdir}/directfb-1.4-5
 
 %description
 SaWMan is a new window manager module for use with DirectFB. Its main
@@ -31,7 +33,7 @@ Summary:	Header files for sawman library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki sawman
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	DirectFB-devel >= 1:1.2.0
+Requires:	DirectFB-devel >= 1:1.4.0
 
 %description devel
 Header files for sawman library.
@@ -52,7 +54,8 @@ Static sawman library.
 Statyczna biblioteka sawman.
 
 %prep
-%setup -q -n %{name}-%{version}-%{subver}
+%setup -q
+%patch0 -p1
 
 %build
 %configure \
@@ -73,11 +76,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/swmdump
-%attr(755,root,root) %{_libdir}/libsawman-1.2.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libsawman-1.2.so.0
-%attr(755,root,root) %{_libdir}/directfb-1.2-0/wm/libdirectfbwm_sawman.so
+%attr(755,root,root) %{_libdir}/libsawman-1.4.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libsawman-1.4.so.5
+%attr(755,root,root) %{dfblibdir}/wm/libdirectfbwm_sawman.so
 
 %files devel
 %defattr(644,root,root,755)
@@ -89,4 +92,4 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libsawman.a
-%{_libdir}/directfb-1.2-0/wm/libdirectfbwm_sawman.[aol]*
+%{dfblibdir}/wm/libdirectfbwm_sawman.[aol]*

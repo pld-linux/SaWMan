@@ -1,0 +1,20 @@
+--- SaWMan-1.4.10/src/sawman.c.orig	2010-11-03 13:05:31.000000000 +0100
++++ SaWMan-1.4.10/src/sawman.c	2010-11-18 20:55:46.827104966 +0100
+@@ -139,7 +139,7 @@
+ 
+ #if !DIRECTFB_BUILD_PURE_VOODOO
+      if (dfb_config->remote.host)
+-          return CreateRemote( dfb_config->remote.host, dfb_config->remote.session, ret_sawman );
++          return CreateRemote( dfb_config->remote.host, dfb_config->session, ret_sawman );
+ 
+      CoreDFB *core;
+ 
+@@ -163,7 +163,7 @@
+ 
+      return DFB_OK;
+ #else
+-     return CreateRemote( dfb_config->remote.host ?: "", dfb_config->remote.session, ret_sawman );
++     return CreateRemote( dfb_config->remote.host ?: "", dfb_config->session, ret_sawman );
+ #endif
+ }
+ 
