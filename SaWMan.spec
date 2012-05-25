@@ -1,16 +1,16 @@
 Summary:	Shared application and Window Manager
 Summary(pl.UTF-8):	Zarządca współdzielonych aplikacji i okien
 Name:		SaWMan
-Version:	1.4.16
+Version:	1.4.17
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://www.directfb.org/downloads/Extras/%{name}-%{version}.tar.gz
-# Source0-md5:	8dff1ee53c1cd0ed2c3074585d7ddd23
+# Source0-md5:	e9d9c2c41f7114f9ee4933c3fada9465
 URL:		http://www.directfb.org/index.php?path=Platform/SaWMan
-BuildRequires:	DirectFB-devel >= 1:1.4.16
+BuildRequires:	DirectFB-devel >= 1:1.4.17
 BuildRequires:	pkgconfig >= 1:0.9
-Requires:	DirectFB >= 1:1.4.16
+Requires:	DirectFB >= 1:1.4.17
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		dfblibdir	%{_libdir}/directfb-1.4-6
@@ -32,7 +32,7 @@ Summary:	Header files for sawman library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki sawman
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	DirectFB-devel >= 1:1.4.16
+Requires:	DirectFB-devel >= 1:1.4.17
 
 %description devel
 Header files for sawman library.
