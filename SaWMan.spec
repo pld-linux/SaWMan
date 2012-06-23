@@ -1,19 +1,19 @@
 Summary:	Shared application and Window Manager
 Summary(pl.UTF-8):	Zarządca współdzielonych aplikacji i okien
 Name:		SaWMan
-Version:	1.4.17
+Version:	1.6.0
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://www.directfb.org/downloads/Extras/%{name}-%{version}.tar.gz
-# Source0-md5:	e9d9c2c41f7114f9ee4933c3fada9465
+# Source0-md5:	15664128a5dbd57b3c15888c10cf23d4
 URL:		http://www.directfb.org/index.php?path=Platform/SaWMan
-BuildRequires:	DirectFB-devel >= 1:1.4.17
+BuildRequires:	DirectFB-devel >= 1:1.6.0
 BuildRequires:	pkgconfig >= 1:0.9
-Requires:	DirectFB >= 1:1.4.17
+Requires:	DirectFB >= 1:1.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		dfblibdir	%{_libdir}/directfb-1.4-6
+%define		dfblibdir	%{_libdir}/directfb-1.6-0
 
 %description
 SaWMan is a new window manager module for use with DirectFB. Its main
@@ -32,7 +32,7 @@ Summary:	Header files for sawman library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki sawman
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	DirectFB-devel >= 1:1.4.17
+Requires:	DirectFB-devel >= 1:1.6.0
 
 %description devel
 Header files for sawman library.
@@ -76,8 +76,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/swmdump
-%attr(755,root,root) %{_libdir}/libsawman-1.4.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libsawman-1.4.so.16
+%attr(755,root,root) %{_libdir}/libsawman-1.6.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libsawman-1.6.so.0
 %attr(755,root,root) %{dfblibdir}/wm/libdirectfbwm_sawman.so
 
 %files devel
