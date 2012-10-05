@@ -1,12 +1,12 @@
 Summary:	Shared application and Window Manager
 Summary(pl.UTF-8):	Zarządca współdzielonych aplikacji i okien
 Name:		SaWMan
-Version:	1.6.0
+Version:	1.6.2
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://www.directfb.org/downloads/Extras/%{name}-%{version}.tar.gz
-# Source0-md5:	15664128a5dbd57b3c15888c10cf23d4
+# Source0-md5:	aeb87cd87a4241f9d4d55a6a363c4b4a
 URL:		http://www.directfb.org/index.php?path=Platform/SaWMan
 BuildRequires:	DirectFB-devel >= 1:1.6.0
 BuildRequires:	pkgconfig >= 1:0.9
